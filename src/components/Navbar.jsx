@@ -13,12 +13,12 @@ export default function Navbar() {
   const [allStops, setAllStops] = useState([])
   const searchRef = useRef(null)
 
-const [user, setUser] = useState(() => {
-  if (typeof window !== 'undefined') {
-    return getSession()
-  }
-  return null
-})
+  // ✅ FIX - server par null, client par useEffect mein load karo
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    setUser(getSession())
+  }, [])
 
   // Fetch all stops for search
   useEffect(() => {
@@ -76,16 +76,13 @@ const [user, setUser] = useState(() => {
   return (
     <>
       {/* Navbar */}
-      <nav className="sticky top-0 z-40 bg-gray-900/80 backdrop-blur-md
-                      border-b border-gray-800">
+      <nav className="sticky top-0 z-40 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
 
             {/* Left — Logo */}
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 bg-teal-600 rounded-xl flex items-center
-                              justify-center shadow-lg shadow-teal-900/50
-                              group-hover:bg-teal-500 transition-all duration-200">
+              <div className="w-8 h-8 bg-teal-600 rounded-xl flex items-center justify-center shadow-lg shadow-teal-900/50 group-hover:bg-teal-500 transition-all duration-200">
                 <span className="text-base">🚌</span>
               </div>
               <span className="text-white font-bold text-lg tracking-tight">
@@ -99,25 +96,18 @@ const [user, setUser] = useState(() => {
               {/* Search Icon */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="w-10 h-10 flex items-center justify-center rounded-xl
-                           text-gray-400 hover:text-white hover:bg-gray-800
-                           transition-all duration-200"
+                className="w-10 h-10 flex items-center justify-center rounded-xl text-gray-400 hover:text-white hover:bg-gray-800 transition-all duration-200"
                 aria-label="Search stops"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor"
-                     viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </button>
 
               {/* Profile Icon */}
               <button
                 onClick={() => router.push('/profile')}
-                className="w-10 h-10 flex items-center justify-center rounded-xl
-                           bg-teal-700 hover:bg-teal-600 text-white font-bold
-                           text-sm transition-all duration-200 shadow-md"
+                className="w-10 h-10 flex items-center justify-center rounded-xl bg-teal-700 hover:bg-teal-600 text-white font-bold text-sm transition-all duration-200 shadow-md"
                 aria-label="Go to profile"
               >
                 {getInitials()}
@@ -130,21 +120,15 @@ const [user, setUser] = useState(() => {
 
       {/* Search Modal Overlay */}
       {searchOpen && (
-        <div className="fixed inset-0 z-50 bg-gray-950/80 backdrop-blur-sm
-                        flex items-start justify-center pt-16 sm:pt-24 px-4">
+        <div className="fixed inset-0 z-50 bg-gray-950/80 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-24 px-4">
           <div
             ref={searchRef}
-            className="w-full max-w-lg bg-gray-900 rounded-2xl border
-                       border-gray-700 shadow-2xl overflow-hidden"
+            className="w-full max-w-lg bg-gray-900 rounded-2xl border border-gray-700 shadow-2xl overflow-hidden"
           >
             {/* Search Input */}
-            <div className="flex items-center gap-3 px-4 py-4
-                            border-b border-gray-800">
-              <svg className="w-5 h-5 text-gray-400 shrink-0" fill="none"
-                   stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <div className="flex items-center gap-3 px-4 py-4 border-b border-gray-800">
+              <svg className="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input
                 autoFocus
@@ -152,13 +136,11 @@ const [user, setUser] = useState(() => {
                 placeholder="Search bus stops..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
-                className="flex-1 bg-transparent text-white
-                           placeholder-gray-500 text-base focus:outline-none"
+                className="flex-1 bg-transparent text-white placeholder-gray-500 text-base focus:outline-none"
               />
               <button
                 onClick={() => { setSearchOpen(false); setSearchQuery('') }}
-                className="text-gray-500 hover:text-white transition-colors
-                           text-sm bg-gray-800 px-2.5 py-1 rounded-lg shrink-0"
+                className="text-gray-500 hover:text-white transition-colors text-sm bg-gray-800 px-2.5 py-1 rounded-lg shrink-0"
               >
                 ESC
               </button>
@@ -169,9 +151,7 @@ const [user, setUser] = useState(() => {
               {searchQuery === '' ? (
                 <div className="px-4 py-10 text-center">
                   <p className="text-4xl mb-3">🚏</p>
-                  <p className="text-gray-500 text-sm">
-                    Type to search bus stops
-                  </p>
+                  <p className="text-gray-500 text-sm">Type to search bus stops</p>
                 </div>
               ) : searchResults.length === 0 ? (
                 <div className="px-4 py-10 text-center">
@@ -193,14 +173,9 @@ const [user, setUser] = useState(() => {
                         setSearchQuery('')
                         router.push(`/?stop_id=${stop.id}`)
                       }}
-                      className="w-full flex items-center gap-3 px-4 py-3
-                                 hover:bg-gray-800 transition-colors duration-150
-                                 text-left group"
+                      className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 transition-colors duration-150 text-left group"
                     >
-                      <div className="w-9 h-9 bg-gray-800 group-hover:bg-gray-700
-                                      rounded-xl flex items-center justify-center
-                                      shrink-0 text-teal-400 text-xs font-bold
-                                      transition-colors">
+                      <div className="w-9 h-9 bg-gray-800 group-hover:bg-gray-700 rounded-xl flex items-center justify-center shrink-0 text-teal-400 text-xs font-bold transition-colors">
                         #{stop.stop_order}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -211,12 +186,8 @@ const [user, setUser] = useState(() => {
                           Route {stop.route_id}
                         </p>
                       </div>
-                      <svg className="w-4 h-4 text-gray-600
-                                      group-hover:text-gray-400 transition-colors
-                                      shrink-0"
-                           fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round"
-                              strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg className="w-4 h-4 text-gray-600 group-hover:text-gray-400 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
                   ))}
