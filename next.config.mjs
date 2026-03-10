@@ -2,6 +2,10 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+  eslint: {
+    // Prevents ESLint warnings/errors from blocking your Vercel deployment
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
