@@ -13,19 +13,15 @@ export default function BusStatusCard({ busId, stopId, onStatusChange }) {
 
     const fetchStatus = async () => {
       try {
-        const res = await fetch(
-          `/api/buses/status?bus_id=${busId}&stop_id=${stopId}`
-        )
+        const res = await fetch(`/api/buses/status?bus_id=${busId}&stop_id=${stopId}`)
         const data = await res.json()
         if (data.success) {
-  setStatusData(data)
-  // Pass full data up so parent can sync distance
-  if (onStatusChange) onStatusChange(data.status, busId, data)
-
-  if (data.status === 'arrived') {
-    setStopped(true)
-  }
-}
+          setStatusData(data)
+          if (onStatusChange) onStatusChange(data.status, busId, data)
+          if (data.status === 'arrived') {
+            setStopped(true)
+          }
+        }
       } catch (error) {
         console.error('Failed to fetch bus status', error)
       } finally {
@@ -132,7 +128,7 @@ export default function BusStatusCard({ busId, stopId, onStatusChange }) {
 
         {/* Vacant Seats */}
         <div className="bg-gray-900/50 rounded-2xl p-3">
-          <p className={`text-2xl font-bold ${ statusData.vacant_seats > 10 ? 'text-green-400' : statusData.vacant_seats > 3 ? 'text-yellow-400' : 'text-red-400' }`}>
+          <p className={`text-2xl font-bold ${statusData.vacant_seats > 10 ? 'text-green-400' : statusData.vacant_seats > 3 ? 'text-yellow-400' : 'text-red-400'}`}>
             {statusData.vacant_seats}
           </p>
           <p className="text-gray-500 text-xs mt-1">Seats Free</p>
@@ -144,9 +140,7 @@ export default function BusStatusCard({ busId, stopId, onStatusChange }) {
       <div className="mt-4 flex items-center justify-between bg-gray-900/50 rounded-2xl px-4 py-3">
         <div className="flex items-center gap-2">
           <span className="text-sm">🚌</span>
-          <p className="text-white text-sm font-medium">
-            {statusData.bus_number}
-          </p>
+          <p className="text-white text-sm font-medium">{statusData.bus_number}</p>
         </div>
         <div className="flex items-center gap-2">
           <span className="text-sm">📍</span>

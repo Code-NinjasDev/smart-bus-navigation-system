@@ -115,14 +115,12 @@ export default function ConductorPanel() {
                 {simulating ? '🟢 Bus is moving...' : '⚫ Bus is stationary'}
               </p>
               <p className="text-gray-500 text-xs mt-0.5">
-                {simulating
-                  ? 'Auto clears stop requests within 100m'
-                  : 'Tap Start to simulate bus movement'}
+                {simulating ? 'Auto clears stop requests within 100m' : 'Tap Start to simulate bus movement'}
               </p>
             </div>
             <button
               onClick={startSimulation}
-              className={`px-4 py-2.5 rounded-xl font-bold text-sm   transition-all duration-200 ${simulating   ? 'bg-red-700 hover:bg-red-600 text-white'   : 'bg-teal-600 hover:bg-teal-500 text-white' }`}
+              className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all duration-200 ${simulating ? 'bg-red-700 hover:bg-red-600 text-white' : 'bg-teal-600 hover:bg-teal-500 text-white'}`}
             >
               {simulating ? '⏹ Stop' : '▶ Start'}
             </button>
@@ -139,9 +137,7 @@ export default function ConductorPanel() {
                   />
                 ))}
               </div>
-              <p className="text-teal-400 text-xs">
-                Moving toward next stop...
-              </p>
+              <p className="text-teal-400 text-xs">Moving toward next stop...</p>
             </div>
           )}
         </div>
@@ -154,27 +150,17 @@ export default function ConductorPanel() {
             </h3>
             <div className="grid grid-cols-3 gap-3 text-center">
               <div className="bg-gray-800 rounded-2xl p-3">
-                <p className="text-2xl font-bold text-white">
-                  {seatData.current_passengers}
-                </p>
+                <p className="text-2xl font-bold text-white">{seatData.current_passengers}</p>
                 <p className="text-gray-500 text-xs mt-1">On Board</p>
               </div>
               <div className="bg-gray-800 rounded-2xl p-3">
-                <p className={`text-2xl font-bold ${
-                  seatData.vacant_seats / seatData.total_capacity > 0.5
-                    ? 'text-green-400'
-                    : seatData.vacant_seats / seatData.total_capacity > 0.2
-                    ? 'text-yellow-400'
-                    : 'text-red-400'
-                }`}>
+                <p className={`text-2xl font-bold ${seatData.vacant_seats / seatData.total_capacity > 0.5 ? 'text-green-400' : seatData.vacant_seats / seatData.total_capacity > 0.2 ? 'text-yellow-400' : 'text-red-400'}`}>
                   {seatData.vacant_seats}
                 </p>
                 <p className="text-gray-500 text-xs mt-1">Vacant</p>
               </div>
               <div className="bg-gray-800 rounded-2xl p-3">
-                <p className="text-2xl font-bold text-gray-300">
-                  {seatData.total_capacity}
-                </p>
+                <p className="text-2xl font-bold text-gray-300">{seatData.total_capacity}</p>
                 <p className="text-gray-500 text-xs mt-1">Total</p>
               </div>
             </div>
@@ -183,12 +169,13 @@ export default function ConductorPanel() {
 
         {/* Board / Exit Buttons */}
         <div className="bg-gray-900 rounded-3xl border border-gray-800 p-5">
-          <h3 className="text-xs font-semibold text-gray-400 uppercase  tracking-wider mb-4">
+          <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
             👥 Passenger Count
           </h3>
 
           {lastAction && (
-            <div className={`text-center text-sm font-semibold mb-3  ${lastAction === 'board' ? 'text-green-400' : 'text-red-400'}`}>  {lastAction === 'board'    ? '✅ Passenger Boarded'    : '✅ Passenger Exited'}
+            <div className={`text-center text-sm font-semibold mb-3 ${lastAction === 'board' ? 'text-green-400' : 'text-red-400'}`}>
+              {lastAction === 'board' ? '✅ Passenger Boarded' : '✅ Passenger Exited'}
             </div>
           )}
 
@@ -209,9 +196,7 @@ export default function ConductorPanel() {
             </button>
           </div>
           <p className="text-center text-gray-600 text-xs mt-3">
-            Tap <span className="text-green-400 font-bold">+</span> when
-            boarding · Tap <span className="text-red-400 font-bold">−</span>
-            when exiting
+            Tap <span className="text-green-400 font-bold">+</span> when boarding · Tap <span className="text-red-400 font-bold">−</span> when exiting
           </p>
         </div>
 

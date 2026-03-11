@@ -16,7 +16,6 @@ export default function AuthPage() {
   const handleSubmit = async () => {
     setError(null)
 
-    // Basic validation
     if (!email.trim() || !password.trim()) {
       setError('Please fill in all fields')
       return
@@ -53,7 +52,7 @@ export default function AuthPage() {
 
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16  bg-teal-600 rounded-2xl mb-4 shadow-lg shadow-teal-900">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-600 rounded-2xl mb-4 shadow-lg shadow-teal-900">
             <span className="text-3xl">🚌</span>
           </div>
           <h1 className="text-3xl font-bold text-white">BusBuddy</h1>
@@ -67,13 +66,13 @@ export default function AuthPage() {
           <div className="flex bg-gray-800 rounded-2xl p-1 mb-6">
             <button
               onClick={() => { setIsLogin(true); setError(null) }}
-              className={`flex-1 py-2.5 rounded-xl text-sm font-semibold  transition-all duration-200  ${isLogin    ? 'bg-teal-600 text-white shadow-md'    : 'text-gray-400 hover:text-white'}`}
+              className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${isLogin ? 'bg-teal-600 text-white shadow-md' : 'text-gray-400 hover:text-white'}`}
             >
               Sign In
             </button>
             <button
               onClick={() => { setIsLogin(false); setError(null) }}
-              className={`flex-1 py-2.5 rounded-xl text-sm font-semibold  transition-all duration-200  ${!isLogin    ? 'bg-teal-600 text-white shadow-md'    : 'text-gray-400 hover:text-white'}`}
+              className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${!isLogin ? 'bg-teal-600 text-white shadow-md' : 'text-gray-400 hover:text-white'}`}
             >
               Sign Up
             </button>
@@ -85,7 +84,7 @@ export default function AuthPage() {
             {/* Name — only on signup */}
             {!isLogin && (
               <div>
-                <label className="text-xs font-semibold text-gray-400 uppercase  tracking-wider mb-1.5 block">
+                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5 block">
                   Full Name
                 </label>
                 <input
@@ -100,7 +99,7 @@ export default function AuthPage() {
 
             {/* Email */}
             <div>
-              <label className="text-xs font-semibold text-gray-400 uppercase  tracking-wider mb-1.5 block">
+              <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5 block">
                 Email
               </label>
               <input
@@ -114,7 +113,7 @@ export default function AuthPage() {
 
             {/* Password */}
             <div>
-              <label className="text-xs font-semibold text-gray-400 uppercase  tracking-wider mb-1.5 block">
+              <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5 block">
                 Password
               </label>
               <input
@@ -142,9 +141,7 @@ export default function AuthPage() {
             disabled={loading}
             className="w-full mt-6 bg-teal-600 hover:bg-teal-500 active:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-teal-900/50"
           >
-            {loading
-              ? '⏳ Please wait...'
-              : isLogin ? 'Sign In' : 'Create Account'}
+            {loading ? '⏳ Please wait...' : isLogin ? 'Sign In' : 'Create Account'}
           </button>
 
         </div>

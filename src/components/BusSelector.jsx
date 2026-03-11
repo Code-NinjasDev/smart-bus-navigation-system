@@ -11,9 +11,6 @@ export default function BusSelector({ selectedBus, onSelect }) {
       try {
         const res = await fetch('/api/stops?route_id=1')
         const data = await res.json()
-
-        // For MVP we hardcode BUS-01 since we have 1 bus in DB
-        // Replace with /api/buses endpoint later
         setBuses([{ id: 1, bus_number: 'BUS-01', route_name: 'City Center to Airport' }])
       } catch (error) {
         console.error('Failed to fetch buses', error)
@@ -35,7 +32,7 @@ export default function BusSelector({ selectedBus, onSelect }) {
         <button
           key={bus.id}
           onClick={() => onSelect(bus.id)}
-          className={`w-full text-left px-4 py-3 rounded-xl border transition-all duration-150  ${selectedBus === bus.id    ? 'bg-teal-700 border-teal-500 text-white'    : 'bg-gray-800 border-gray-700 text-gray-300 hover:border-teal-600'  }`}
+          className={`w-full text-left px-4 py-3 rounded-xl border transition-all duration-150 ${selectedBus === bus.id ? 'bg-teal-700 border-teal-500 text-white' : 'bg-gray-800 border-gray-700 text-gray-300 hover:border-teal-600'}`}
         >
           <div className="flex items-center justify-between">
             <div>
