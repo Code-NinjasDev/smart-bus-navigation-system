@@ -123,7 +123,7 @@ export default function BusAlertModal({ status, busNumber, stopName, onClose }) 
       </div>
 
       {/* Animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes slideUp {
           from { opacity: 0; transform: translateY(20px) scale(0.95); }
           to { opacity: 1; transform: translateY(0) scale(1); }
