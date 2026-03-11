@@ -38,18 +38,14 @@ export default function AlertCard({ request, onAccept, onSkip, loading }) {
         <button
           onClick={onAccept}
           disabled={loading}
-          className="bg-green-700 hover:bg-green-600 active:bg-green-800
-                     disabled:opacity-50 text-white font-semibold py-3
-                     rounded-xl transition-all duration-150"
+          className="bg-green-700 hover:bg-green-600 active:bg-green-800 disabled:opacity-50 text-white font-semibold py-3 rounded-xl transition-all duration-150"
         >
           ✅ Accept
         </button>
         <button
           onClick={onSkip}
           disabled={loading}
-          className="bg-red-800 hover:bg-red-700 active:bg-red-900
-                     disabled:opacity-50 text-white font-semibold py-3
-                     rounded-xl transition-all duration-150"
+          className="bg-red-800 hover:bg-red-700 active:bg-red-900 disabled:opacity-50 text-white font-semibold py-3 rounded-xl transition-all duration-150"
         >
           ❌ Skip
         </button>

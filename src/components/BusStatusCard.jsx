@@ -98,15 +98,13 @@ export default function BusStatusCard({ busId, stopId, onStatusChange }) {
   }
 
   return (
-    <div className={`rounded-3xl border p-5 transition-all duration-500
-                     ${config.bg} ${config.border}`}>
+    <div className={`rounded-3xl border p-5 transition-all duration-500 ${config.bg} ${config.border}`}>
 
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <div className={`w-2 h-2 rounded-full animate-pulse ${config.pulse}`}/>
-          <p className={`text-xs font-semibold uppercase tracking-wider
-                         ${config.labelColor}`}>
+          <p className={`text-xs font-semibold uppercase tracking-wider ${config.labelColor}`}>
             {config.label}
           </p>
         </div>
@@ -134,13 +132,7 @@ export default function BusStatusCard({ busId, stopId, onStatusChange }) {
 
         {/* Vacant Seats */}
         <div className="bg-gray-900/50 rounded-2xl p-3">
-          <p className={`text-2xl font-bold ${
-            statusData.vacant_seats > 10
-              ? 'text-green-400'
-              : statusData.vacant_seats > 3
-              ? 'text-yellow-400'
-              : 'text-red-400'
-          }`}>
+          <p className={`text-2xl font-bold ${ statusData.vacant_seats > 10 ? 'text-green-400' : statusData.vacant_seats > 3 ? 'text-yellow-400' : 'text-red-400' }`}>
             {statusData.vacant_seats}
           </p>
           <p className="text-gray-500 text-xs mt-1">Seats Free</p>
@@ -149,8 +141,7 @@ export default function BusStatusCard({ busId, stopId, onStatusChange }) {
       </div>
 
       {/* Bus + Stop Info */}
-      <div className="mt-4 flex items-center justify-between
-                      bg-gray-900/50 rounded-2xl px-4 py-3">
+      <div className="mt-4 flex items-center justify-between bg-gray-900/50 rounded-2xl px-4 py-3">
         <div className="flex items-center gap-2">
           <span className="text-sm">🚌</span>
           <p className="text-white text-sm font-medium">
@@ -174,8 +165,7 @@ export default function BusStatusCard({ busId, stopId, onStatusChange }) {
       )}
 
       {statusData.status === 'arrived' && (
-        <p className={`text-center text-sm font-semibold mt-3
-                       ${config.labelColor}`}>
+        <p className={`text-center text-sm font-semibold mt-3 ${config.labelColor}`}>
           🎉 Your bus has arrived at {statusData.stop_name}!
         </p>
       )}

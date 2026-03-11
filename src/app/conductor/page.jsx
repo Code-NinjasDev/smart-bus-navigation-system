@@ -106,8 +106,7 @@ export default function ConductorPanel() {
 
         {/* Bus Simulation */}
         <div className="bg-gray-900 rounded-3xl border border-gray-800 p-5">
-          <h3 className="text-xs font-semibold text-gray-400 uppercase
-                         tracking-wider mb-3">
+          <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
             🗺️ Bus Location Simulation
           </h3>
           <div className="flex items-center justify-between">
@@ -123,12 +122,7 @@ export default function ConductorPanel() {
             </div>
             <button
               onClick={startSimulation}
-              className={`px-4 py-2.5 rounded-xl font-bold text-sm
-                          transition-all duration-200
-                ${simulating
-                  ? 'bg-red-700 hover:bg-red-600 text-white'
-                  : 'bg-teal-600 hover:bg-teal-500 text-white'
-                }`}
+              className={`px-4 py-2.5 rounded-xl font-bold text-sm   transition-all duration-200 ${simulating   ? 'bg-red-700 hover:bg-red-600 text-white'   : 'bg-teal-600 hover:bg-teal-500 text-white' }`}
             >
               {simulating ? '⏹ Stop' : '▶ Start'}
             </button>
@@ -155,8 +149,7 @@ export default function ConductorPanel() {
         {/* Seat Info */}
         {seatData && (
           <div className="bg-gray-900 rounded-3xl border border-gray-800 p-5">
-            <h3 className="text-xs font-semibold text-gray-400 uppercase
-                           tracking-wider mb-4">
+            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
               💺 Seat Status
             </h3>
             <div className="grid grid-cols-3 gap-3 text-center">
@@ -190,17 +183,12 @@ export default function ConductorPanel() {
 
         {/* Board / Exit Buttons */}
         <div className="bg-gray-900 rounded-3xl border border-gray-800 p-5">
-          <h3 className="text-xs font-semibold text-gray-400 uppercase
-                         tracking-wider mb-4">
+          <h3 className="text-xs font-semibold text-gray-400 uppercase  tracking-wider mb-4">
             👥 Passenger Count
           </h3>
 
           {lastAction && (
-            <div className={`text-center text-sm font-semibold mb-3
-              ${lastAction === 'board' ? 'text-green-400' : 'text-red-400'}`}>
-              {lastAction === 'board'
-                ? '✅ Passenger Boarded'
-                : '✅ Passenger Exited'}
+            <div className={`text-center text-sm font-semibold mb-3  ${lastAction === 'board' ? 'text-green-400' : 'text-red-400'}`}>  {lastAction === 'board'    ? '✅ Passenger Boarded'    : '✅ Passenger Exited'}
             </div>
           )}
 
@@ -208,18 +196,14 @@ export default function ConductorPanel() {
             <button
               onClick={() => handleTap('board')}
               disabled={loading}
-              className="bg-green-600 hover:bg-green-500 active:bg-green-700
-                         disabled:opacity-50 text-white text-4xl font-bold
-                         rounded-2xl py-8 transition-all duration-150 shadow-lg"
+              className="bg-green-600 hover:bg-green-500 active:bg-green-700 disabled:opacity-50 text-white text-4xl font-bold rounded-2xl py-8 transition-all duration-150 shadow-lg"
             >
               +
             </button>
             <button
               onClick={() => handleTap('exit')}
               disabled={loading}
-              className="bg-red-600 hover:bg-red-500 active:bg-red-700
-                         disabled:opacity-50 text-white text-4xl font-bold
-                         rounded-2xl py-8 transition-all duration-150 shadow-lg"
+              className="bg-red-600 hover:bg-red-500 active:bg-red-700 disabled:opacity-50 text-white text-4xl font-bold rounded-2xl py-8 transition-all duration-150 shadow-lg"
             >
               −
             </button>

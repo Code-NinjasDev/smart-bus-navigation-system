@@ -66,8 +66,7 @@ export default function DriverDashboard() {
         {/* Seat Status */}
         <div className="bg-gray-900 rounded-3xl border border-gray-800 p-5">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xs font-semibold text-gray-400 uppercase
-                           tracking-wider">
+            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
               💺 Current Seat Status
             </h3>
             <div className="flex items-center gap-1.5">
@@ -113,21 +112,12 @@ export default function DriverDashboard() {
               {upcomingStops.map((stop, index) => (
                 <div
                   key={stop.stop_id}
-                  className={`rounded-2xl p-4 border
-                    ${index === 0
-                      ? 'bg-teal-950 border-teal-800'
-                      : 'bg-gray-800 border-gray-700'
-                    }`}
+                  className={`rounded-2xl p-4 border  ${index === 0    ? 'bg-teal-950 border-teal-800'    : 'bg-gray-800 border-gray-700'  }`}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       {/* Stop order badge */}
-                      <div className={`w-9 h-9 rounded-xl flex items-center
-                                      justify-center text-sm font-bold shrink-0
-                                      ${index === 0
-                                        ? 'bg-teal-700 text-white'
-                                        : 'bg-gray-700 text-gray-400'
-                                      }`}>
+                      <div className={`w-9 h-9 rounded-xl flex items-center  justify-center text-sm font-bold shrink-0  ${index === 0    ? 'bg-teal-700 text-white'    : 'bg-gray-700 text-gray-400'  }`}>
                         #{stop.stop_order}
                       </div>
                       <div>

@@ -192,39 +192,22 @@ const handleStatusChange = useCallback((status, busId, data) => {
 
         {/* Progress Steps */}
         <div className="flex items-center gap-2">
-          <div className={`flex items-center gap-1.5 text-xs font-semibold
-            ${selectedRoute ? 'text-teal-400' : 'text-gray-500'}`}>
-            <div className={`w-5 h-5 rounded-full flex items-center
-                            justify-center text-xs font-bold
-              ${selectedRoute
-                ? 'bg-teal-600 text-white'
-                : 'bg-gray-800 text-gray-500'}`}>
+          <div className={`flex items-center gap-1.5 text-xs font-semibold  ${selectedRoute ? 'text-teal-400' : 'text-gray-500'}`}>
+            <div className={`w-5 h-5 rounded-full flex items-center  justify-center text-xs font-bold  ${selectedRoute    ? 'bg-teal-600 text-white'    : 'bg-gray-800 text-gray-500'}`}>
               {selectedRoute ? '✓' : '1'}
             </div>
             Route
           </div>
-          <div className={`flex-1 h-px
-            ${selectedRoute ? 'bg-teal-800' : 'bg-gray-800'}`}/>
-          <div className={`flex items-center gap-1.5 text-xs font-semibold
-            ${selectedStop ? 'text-teal-400' : 'text-gray-500'}`}>
-            <div className={`w-5 h-5 rounded-full flex items-center
-                            justify-center text-xs font-bold
-              ${selectedStop
-                ? 'bg-teal-600 text-white'
-                : 'bg-gray-800 text-gray-500'}`}>
+          <div className={`flex-1 h-px  ${selectedRoute ? 'bg-teal-800' : 'bg-gray-800'}`}/>
+          <div className={`flex items-center gap-1.5 text-xs font-semibold  ${selectedStop ? 'text-teal-400' : 'text-gray-500'}`}>
+            <div className={`w-5 h-5 rounded-full flex items-center  justify-center text-xs font-bold    ${selectedStop      ? 'bg-teal-600 text-white'      : 'bg-gray-800 text-gray-500'}`}>
               {selectedStop ? '✓' : '2'}
             </div>
             Stop
           </div>
-          <div className={`flex-1 h-px
-            ${selectedStop ? 'bg-teal-800' : 'bg-gray-800'}`}/>
-          <div className={`flex items-center gap-1.5 text-xs font-semibold
-            ${showBusList ? 'text-teal-400' : 'text-gray-500'}`}>
-            <div className={`w-5 h-5 rounded-full flex items-center
-                            justify-center text-xs font-bold
-              ${showBusList
-                ? 'bg-teal-600 text-white'
-                : 'bg-gray-800 text-gray-500'}`}>
+          <div className={`flex-1 h-px  ${selectedStop ? 'bg-teal-800' : 'bg-gray-800'}`}/>
+          <div className={`flex items-center gap-1.5 text-xs font-semibold  ${showBusList ? 'text-teal-400' : 'text-gray-500'}`}>
+            <div className={`w-5 h-5 rounded-full flex items-center  justify-center text-xs font-bold    ${showBusList      ? 'bg-teal-600 text-white'      : 'bg-gray-800 text-gray-500'}`}>
               {showBusList ? '✓' : '3'}
             </div>
             Bus
@@ -314,8 +297,7 @@ const handleStatusChange = useCallback((status, busId, data) => {
 function HomeLoading() {
   return (
     <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-      <div className="w-8 h-8 border-2 border-teal-500 border-t-transparent
-                      rounded-full animate-spin"/>
+      <div className="w-8 h-8 border-2 border-teal-500 border-t-transparent  rounded-full animate-spin"/>
     </div>
   )
 }

@@ -32,13 +32,7 @@ export default function SeatCount({ seatData }) {
       {/* Visual seat bar */}
       <div className="mt-3 w-full bg-gray-800 rounded-full h-1.5">
         <div
-          className={`h-1.5 rounded-full transition-all duration-500 ${
-            seatData.vacant_seats / seatData.total_capacity > 0.5
-              ? 'bg-green-400'
-              : seatData.vacant_seats / seatData.total_capacity > 0.2
-              ? 'bg-yellow-400'
-              : 'bg-red-400'
-          }`}
+          className={`h-1.5 rounded-full transition-all duration-500 ${ seatData.vacant_seats / seatData.total_capacity > 0.5  ? 'bg-green-400'  : seatData.vacant_seats / seatData.total_capacity > 0.2  ? 'bg-yellow-400'  : 'bg-red-400'  }`}
           style={{
             width: `${(seatData.vacant_seats / seatData.total_capacity) * 100}%`
           }}

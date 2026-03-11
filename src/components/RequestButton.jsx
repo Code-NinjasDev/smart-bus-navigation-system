@@ -6,13 +6,7 @@ export default function RequestButton({ onRequest, loading, disabled }) {
       <button
         onClick={onRequest}
         disabled={disabled || loading}
-        className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-200
-          ${disabled
-            ? 'bg-gray-800 text-gray-600 border border-gray-700 cursor-not-allowed'
-            : loading
-            ? 'bg-teal-800 text-teal-300 border border-teal-700 cursor-wait'
-            : 'bg-teal-600 hover:bg-teal-500 active:bg-teal-700 text-white shadow-lg shadow-teal-900'
-          }`}
+        className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-200  ${disabled  ? 'bg-gray-800 text-gray-600 border border-gray-700 cursor-not-allowed'  : loading  ? 'bg-teal-800 text-teal-300 border border-teal-700 cursor-wait'  : 'bg-teal-600 hover:bg-teal-500 active:bg-teal-700 text-white shadow-lg shadow-teal-900'  }`}
       >
         {loading ? (
           <span className="flex items-center justify-center gap-2">

@@ -35,11 +35,7 @@ export default function BusSelector({ selectedBus, onSelect }) {
         <button
           key={bus.id}
           onClick={() => onSelect(bus.id)}
-          className={`w-full text-left px-4 py-3 rounded-xl border transition-all duration-150
-            ${selectedBus === bus.id
-              ? 'bg-teal-700 border-teal-500 text-white'
-              : 'bg-gray-800 border-gray-700 text-gray-300 hover:border-teal-600'
-            }`}
+          className={`w-full text-left px-4 py-3 rounded-xl border transition-all duration-150  ${selectedBus === bus.id    ? 'bg-teal-700 border-teal-500 text-white'    : 'bg-gray-800 border-gray-700 text-gray-300 hover:border-teal-600'  }`}
         >
           <div className="flex items-center justify-between">
             <div>

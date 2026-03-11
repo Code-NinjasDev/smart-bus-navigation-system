@@ -63,11 +63,7 @@ export default function BusList({
         return (
           <div
             key={bus.id}
-            className={`rounded-2xl border transition-all duration-200 p-4
-              ${isNotified
-                ? 'bg-teal-950/30 border-teal-800'
-                : 'bg-gray-800 border-gray-700 hover:border-gray-600'
-              }`}
+            className={`rounded-2xl border transition-all duration-200 p-4 ${isNotified ? 'bg-teal-950/30 border-teal-800' : 'bg-gray-800 border-gray-700 hover:border-gray-600' }`}
           >
             <div className="flex items-center justify-between gap-3">
 
@@ -75,11 +71,7 @@ export default function BusList({
               <div className="flex items-center gap-3 min-w-0">
 
                 {/* Rank badge */}
-                <div className={`w-8 h-8 rounded-xl flex items-center
-                                 justify-center text-xs font-bold shrink-0
-                  ${index === 0
-                    ? 'bg-teal-600 text-white'
-                    : 'bg-gray-700 text-gray-400'}`}>
+                <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 ${index === 0 ? 'bg-teal-600 text-white' : 'bg-gray-700 text-gray-400'}`}>
                   {index + 1}
                 </div>
 
@@ -90,16 +82,12 @@ export default function BusList({
                       {bus.bus_number}
                     </p>
                     {index === 0 && (
-                      <span className="text-xs bg-teal-900 text-teal-300
-                                       border border-teal-800 px-2 py-0.5
-                                       rounded-full">
+                      <span className="text-xs bg-teal-900 text-teal-300 border border-teal-800 px-2 py-0.5 rounded-full">
                         Next
                       </span>
                     )}
                     {isNotified && (
-                      <span className="text-xs bg-teal-900/50 text-teal-400
-                                       border border-teal-800 px-2 py-0.5
-                                       rounded-full">
+                      <span className="text-xs bg-teal-900/50 text-teal-400 border border-teal-800 px-2 py-0.5 rounded-full">
                         Tracking 📍
                       </span>
                     )}
@@ -110,16 +98,14 @@ export default function BusList({
                       📍 {bus.distance_km} km away
                     </span>
                     <span className="text-gray-700 text-xs">·</span>
-                    <span className={`text-xs font-medium
-                      ${getSeatColor(bus.vacant_seats, bus.total_capacity)}`}>
+                    <span className={`text-xs font-medium ${getSeatColor(bus.vacant_seats, bus.total_capacity)}`}>
                       {bus.vacant_seats} seats free
                     </span>
                   </div>
 
                   {/* User waiting tag */}
                   {isNotified && (
-                    <div className="mt-2 flex items-center gap-2 bg-teal-900/40
-                                    border border-teal-800 rounded-xl px-3 py-1.5">
+                    <div className="mt-2 flex items-center gap-2 bg-teal-900/40 border border-teal-800 rounded-xl px-3 py-1.5">
                       <span className="text-sm">🧍</span>
                       <p className="text-teal-300 text-xs font-medium">
                         You are waiting here · Notified ✓
@@ -137,10 +123,8 @@ export default function BusList({
               <div className="flex items-center gap-2 shrink-0">
 
                 {/* ETA Badge */}
-                <div className={`border rounded-xl px-3 py-1.5 text-center
-                                 min-w-15 ${getEtaBg(bus.eta_minutes)}`}>
-                  <p className={`text-lg font-bold leading-none
-                                 ${getEtaColor(bus.eta_minutes)}`}>
+                <div className={`border rounded-xl px-3 py-1.5 text-center min-w-15 ${getEtaBg(bus.eta_minutes)}`}>
+                  <p className={`text-lg font-bold leading-none ${getEtaColor(bus.eta_minutes)}`}>
                     {bus.eta_minutes}
                   </p>
                   <p className="text-gray-500 text-xs mt-0.5">min</p>
@@ -150,14 +134,7 @@ export default function BusList({
                 <button
                   onClick={() => !isNotified && onNotify(bus.id)}
                   disabled={isNotified || notifyState === 'error'}
-                  className={`px-3 py-2 rounded-xl text-xs font-bold
-                               transition-all duration-200
-                    ${isNotified
-                      ? 'bg-teal-900 border border-teal-700 text-teal-300 cursor-default'
-                      : notifyState === 'error'
-                      ? 'bg-red-900 border border-red-700 text-red-300 cursor-default'
-                      : 'bg-teal-700 hover:bg-teal-600 active:bg-teal-800 text-white'
-                    }`}
+                  className={`px-3 py-2 rounded-xl text-xs font-bold transition-all duration-200 ${isNotified ? 'bg-teal-900 border border-teal-700 text-teal-300 cursor-default' : notifyState === 'error' ? 'bg-red-900 border border-red-700 text-red-300 cursor-default' : 'bg-teal-700 hover:bg-teal-600 active:bg-teal-800 text-white' }`}
                 >
                   {isNotified
                     ? '✓ Notified'
@@ -172,13 +149,7 @@ export default function BusList({
             {/* Seat progress bar */}
             <div className="mt-3 w-full bg-gray-700 rounded-full h-1">
               <div
-                className={`h-1 rounded-full transition-all duration-500
-                  ${bus.vacant_seats / bus.total_capacity > 0.5
-                    ? 'bg-green-400'
-                    : bus.vacant_seats / bus.total_capacity > 0.2
-                    ? 'bg-yellow-400'
-                    : 'bg-red-400'
-                  }`}
+                className={`h-1 rounded-full transition-all duration-500 ${bus.vacant_seats / bus.total_capacity > 0.5 ? 'bg-green-400' : bus.vacant_seats / bus.total_capacity > 0.2 ? 'bg-yellow-400' : 'bg-red-400' }`}
                 style={{
                   width: `${(bus.vacant_seats / bus.total_capacity) * 100}%`
                 }}

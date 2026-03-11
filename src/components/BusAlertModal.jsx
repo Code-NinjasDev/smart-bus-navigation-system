@@ -66,17 +66,14 @@ export default function BusAlertModal({ status, busNumber, stopName, onClose }) 
       />
 
       {/* Modal */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center
-                      px-4 pointer-events-none">
+      <div className="fixed inset-0 z-50 flex items-center justify-center px-4 pointer-events-none">
         <div
-          className={`w-full max-w-sm rounded-3xl border p-6 shadow-2xl
-                      pointer-events-auto ${config.bg} ${config.border}`}
+          className={`w-full max-w-sm rounded-3xl border p-6 shadow-2xl pointer-events-auto ${config.bg} ${config.border}`}
           style={{ animation: 'slideUp 0.3s ease-out' }}
         >
 
           {/* Icon */}
-          <div className={`w-16 h-16 ${config.iconBg} rounded-2xl flex items-center
-                           justify-center text-3xl mx-auto mb-4 shadow-lg`}>
+          <div className={`w-16 h-16 ${config.iconBg} rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 shadow-lg`}>
             {config.icon}
           </div>
 
@@ -91,8 +88,7 @@ export default function BusAlertModal({ status, busNumber, stopName, onClose }) 
           </p>
 
           {/* Bus + Stop Info */}
-          <div className="bg-gray-900/50 rounded-2xl p-3 mb-5
-                          flex items-center justify-between">
+          <div className="bg-gray-900/50 rounded-2xl p-3 mb-5 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span>🚌</span>
               <p className="text-white text-sm font-semibold">{busNumber}</p>
@@ -115,9 +111,7 @@ export default function BusAlertModal({ status, busNumber, stopName, onClose }) 
           {/* Close Button */}
           <button
             onClick={handleClose}
-            className={`w-full py-3 rounded-2xl text-white font-bold
-                        text-sm transition-all duration-200 ${config.buttonBg}`}
-          >
+            className={`w-full py-3 rounded-2xl text-white font-bold text-sm transition-all duration-200 ${config.buttonBg}`}>
             Got it!
           </button>
 

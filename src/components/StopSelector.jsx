@@ -50,8 +50,7 @@ export default function StopSelector({ selectedStop, selectedRoute, onSelectStop
 
       {/* Step 1 — Route Selector */}
       <div>
-        <p className="text-xs font-semibold text-gray-400 uppercase
-                       tracking-wider mb-2">
+        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
           Step 1 · Select Route
         </p>
 
@@ -71,12 +70,7 @@ export default function StopSelector({ selectedStop, selectedRoute, onSelectStop
                   onSelectRoute(route.id)
                   onSelectStop(null) // reset stop when route changes
                 }}
-                className={`w-full text-left px-4 py-3 rounded-xl border
-                             transition-all duration-150
-                  ${selectedRoute === route.id
-                    ? 'bg-teal-700 border-teal-500 text-white'
-                    : 'bg-gray-800 border-gray-700 text-gray-300 hover:border-teal-600'
-                  }`}
+                className={`w-full text-left px-4 py-3 rounded-xl border transition-all duration-150 ${selectedRoute === route.id ? 'bg-teal-700 border-teal-500 text-white' : 'bg-gray-800 border-gray-700 text-gray-300 hover:border-teal-600' }`}
               >
                 <div className="flex items-center justify-between">
                   <div>
@@ -100,8 +94,7 @@ export default function StopSelector({ selectedStop, selectedRoute, onSelectStop
       {/* Step 2 — Stop Selector */}
       {selectedRoute && (
         <div>
-          <p className="text-xs font-semibold text-gray-400 uppercase
-                         tracking-wider mb-2">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
             Step 2 · Select Your Stop
           </p>
 
@@ -118,20 +111,10 @@ export default function StopSelector({ selectedStop, selectedRoute, onSelectStop
                 <button
                   key={stop.id}
                   onClick={() => onSelectStop(stop.id)}
-                  className={`w-full text-left px-4 py-3 rounded-xl border
-                               transition-all duration-150
-                    ${selectedStop === stop.id
-                      ? 'bg-teal-700 border-teal-500 text-white'
-                      : 'bg-gray-800 border-gray-700 text-gray-300 hover:border-teal-600'
-                    }`}
+                  className={`w-full text-left px-4 py-3 rounded-xl border transition-all duration-150 ${selectedStop === stop.id ? 'bg-teal-700 border-teal-500 text-white' : 'bg-gray-800 border-gray-700 text-gray-300 hover:border-teal-600' }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className={`text-xs font-bold w-6 h-6 rounded-lg
-                                      flex items-center justify-center shrink-0
-                      ${selectedStop === stop.id
-                        ? 'bg-teal-500 text-white'
-                        : 'bg-gray-700 text-gray-400'
-                      }`}>
+                    <span className={`text-xs font-bold w-6 h-6 rounded-lg flex items-center justify-center shrink-0 ${selectedStop === stop.id  ? 'bg-teal-500 text-white' : 'bg-gray-700 text-gray-400'  }`}>
                       {stop.stop_order}
                     </span>
                     <p className="text-sm font-medium">{stop.stop_name}</p>
